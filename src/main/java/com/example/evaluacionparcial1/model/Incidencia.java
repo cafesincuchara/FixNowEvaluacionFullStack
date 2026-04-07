@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Setter @Getter
-@Table(name="repors")
+@Table(name="incidencias")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Incidencia {

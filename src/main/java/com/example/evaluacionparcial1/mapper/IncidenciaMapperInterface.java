@@ -6,5 +6,5 @@ import com.example.evaluacionparcial1.model.dto.IncidenciaResponse;
 
 public interface IncidenciaMapperInterface {
    Incidencia toEntity(IncidenciaRequest request);
-   IncidenciaResponse toReportResponse(Incidencia incidencia);
+   IncidenciaResponse toIncidenciaResponse(Incidencia incidencia);
 }

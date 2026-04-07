@@ -18,33 +18,33 @@ public class IncidenciaController {
     private final IncidenciaService service;
 
     @GetMapping
-    public ResponseEntity<List<IncidenciaResponse>> getReports() {
-        return ResponseEntity.ok(service.getReports());
+    public ResponseEntity<List<IncidenciaResponse>> getincidencias() {
+        return ResponseEntity.ok(service.getIncidencia());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<IncidenciaResponse> getReport(@PathVariable UUID id) {
-        return ResponseEntity.ok(service.getReportById(id));
+        return ResponseEntity.ok(service.getIncidenciaById(id));
     }
 
     @GetMapping("/estado/{estado}")
     public ResponseEntity<List<IncidenciaResponse>> getReportsByEstado(@Valid @PathVariable String estado) {
-        return ResponseEntity.ok(service.getReportsByEstado(estado));
+        return ResponseEntity.ok(service.getIncidenciaByEstado(estado));
     }
 
     @PostMapping
     public ResponseEntity<IncidenciaResponse> createReport(@Valid @RequestBody IncidenciaRequest incidenciaRequest) {
-        return ResponseEntity.status(201).body(service.createReport(incidenciaRequest));
+        return ResponseEntity.status(201).body(service.createIncidencia(incidenciaRequest));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<IncidenciaResponse> updateReport(@Valid @RequestBody IncidenciaRequest incidenciaRequest, @PathVariable UUID id) {
-        return ResponseEntity.ok(service.updateReportById(incidenciaRequest, id));
+        return ResponseEntity.ok(service.updateIncidenciaById(incidenciaRequest, id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteReport(@PathVariable UUID id) {
-        service.deleteReportById(id);
+        service.deleteIncidenciaById(id);
         return ResponseEntity.noContent().build();
     }
 }

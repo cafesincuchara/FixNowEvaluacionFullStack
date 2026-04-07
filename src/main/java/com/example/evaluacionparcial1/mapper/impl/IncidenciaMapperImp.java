@@ -26,7 +26,7 @@ public class IncidenciaMapperImp implements IncidenciaMapperInterface {
     }
 
     @Override
-    public IncidenciaResponse toReportResponse(Incidencia incidencia) {
+    public IncidenciaResponse toIncidenciaResponse(Incidencia incidencia) {
         return new IncidenciaResponse(
                 incidencia.getId(),
                 incidencia.getTitle(),

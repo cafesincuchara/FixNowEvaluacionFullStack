@@ -17,20 +17,20 @@ import java.util.UUID;
 @Table(name="repors")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Report {
+public class Incidencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @NotBlank
+    @NotBlank(message = "El titulo no puede estar vacio")
     private String title;
-    @NotBlank
+    @NotBlank(message = "La descripcion no puede estar vacia")
     private String description;
     @Enumerated(EnumType.STRING)
     private Estado estado;
     @Enumerated(EnumType.STRING)
     private Prioridad prioridad;
-    @NotBlank
+    @NotBlank(message = "Se necesita un reporte por parte del usuario")
     private String usuarioReportante; // nombre del usuario que reporta el problema
     @NotNull
     private LocalDateTime fechaRegistro;

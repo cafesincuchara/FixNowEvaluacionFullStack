@@ -5,7 +5,7 @@ import com.example.evaluacionparcial1.model.Enums.Prioridad;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record ReportResponse(
+public record IncidenciaResponse(
         UUID id,
         String title,
         String description,

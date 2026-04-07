@@ -25,14 +25,15 @@ public class IncidenciaService {
     }
 
     public IncidenciaResponse updateIncidenciaById(IncidenciaRequest request, UUID id) {
-        repository.findById(id).orElseThrow(() -> new RuntimeException("ID del Incidencia no encontrado"));
 
-        IncidenciaRequest reportSave = new IncidenciaRequest(
-                request.title(),
-                request.descripcion(),
-                request.usuarioReportante()
-        );
-        return mapper.toIncidenciaResponse(repository.save(mapper.toEntity(reportSave)));
+        return repository.findById(id).map(incidencia -> {
+            incidencia.setTitle(request.title());
+            incidencia.setDescription(request.descripcion());
+            incidencia.setUsuarioReportante(request.usuarioReportante());
+
+            Incidencia nuevoIncidencia = repository.save(incidencia);
+            return mapper.toIncidenciaResponse(nuevoIncidencia);
+        }).orElseThrow(() -> new RuntimeException("No se encontro el ID del Incidencia"));
     }
 
     public List<IncidenciaResponse> getIncidencia() {

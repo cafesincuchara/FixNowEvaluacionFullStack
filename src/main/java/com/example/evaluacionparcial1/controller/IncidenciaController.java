@@ -23,18 +23,18 @@ public class IncidenciaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<IncidenciaResponse> getReport(@PathVariable UUID id) {
+    public ResponseEntity<IncidenciaResponse> getReport(@Valid @PathVariable UUID id) {
         return ResponseEntity.ok(service.getIncidenciaById(id));
     }
 
     @GetMapping("/estado/{estado}")
-    public ResponseEntity<List<IncidenciaResponse>> getReportsByEstado(@Valid @PathVariable String estado) {
+    public ResponseEntity<List<IncidenciaResponse>> getReportsByEstado(@PathVariable String estado) {
         return ResponseEntity.ok(service.getIncidenciaByEstado(estado));
     }
 
     @PostMapping
     public ResponseEntity<IncidenciaResponse> createReport(@Valid @RequestBody IncidenciaRequest incidenciaRequest) {
-        return ResponseEntity.status(201).body(service.createIncidencia(incidenciaRequest));
+        return ResponseEntity.ok().body(service.createIncidencia(incidenciaRequest));
     }
 
     @PutMapping("/{id}")

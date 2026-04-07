@@ -18,7 +18,7 @@ public class IncidenciaService {
     private final IncidenciaRepository repository;
     private final IncidenciaMapperInterface mapper;
 
-    public IncidenciaResponse createIncidencia(IncidenciaRequest request) {
+    public IncidenciaResponse createIncidencia(IncidenciaRequest request) { //creacion de incidencia
         Incidencia incidencia = mapper.toEntity(request);
         Incidencia savedIncidencia = repository.save(incidencia);
         return mapper.toIncidenciaResponse(savedIncidencia);

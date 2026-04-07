@@ -28,6 +28,7 @@ public class Incidencia {
     private String description;
     @Enumerated(EnumType.STRING)
     private Estado estado;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Prioridad prioridad;
     @NotBlank(message = "Se necesita un reporte por parte del usuario")
